@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="it" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studio Commercialista MMJB</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <span class="logo-icon"><i class="fas fa-balance-scale"></i></span>
+        <div class="logo-text">
+          <span class="logo-main">MMJB</span>
+          <span class="logo-sub" data-i18n="logoSub">Studio Commercialista</span>
+        </div>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" data-i18n="navHome">Home</a></li>
+        <li><a href="#servizi" data-i18n="navServices">Servizi</a></li>
+        <li><a href="#about" data-i18n="navAbout">Chi Siamo</a></li>
+        <li><a href="#team" data-i18n="navTeam">Team</a></li>
+        <li><a href="#contatti" data-i18n="navContact">Contatti</a></li>
+      </ul>
+      <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="it">IT</button>
+        <button class="lang-btn" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="ar">AR</button>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-tagline" data-i18n="heroTagline">Professionalità · Affidabilità · Eccellenza</p>
+      <h1 class="hero-title" data-i18n="heroTitle">Il Vostro Partner di Fiducia per la Consulenza Fiscale e Contabile</h1>
+      <p class="hero-desc" data-i18n="heroDesc">Con oltre 20 anni di esperienza, offriamo soluzioni su misura per privati, professionisti e aziende in tutta Italia.</p>
+      <div class="hero-buttons">
+        <a href="#contatti" class="btn btn-primary" data-i18n="heroCta">Contattaci Ora</a>
+        <a href="#servizi" class="btn btn-outline" data-i18n="heroServices">I Nostri Servizi</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <a href="#servizi"><i class="fas fa-chevron-down"></i></a>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stats-container">
+      <div class="stat-item">
+        <span class="stat-number">20+</span>
+        <span class="stat-label" data-i18n="stat1">Anni di Esperienza</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">500+</span>
+        <span class="stat-label" data-i18n="stat2">Clienti Soddisfatti</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">15</span>
+        <span class="stat-label" data-i18n="stat3">Professionisti</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">100%</span>
+        <span class="stat-label" data-i18n="stat4">Conformità Garantita</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="servizi">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-label" data-i18n="servicesLabel">Cosa Facciamo</span>
+        <h2 data-i18n="servicesTitle">I Nostri Servizi</h2>
+        <p data-i18n="servicesDesc">Offriamo una gamma completa di servizi contabili, fiscali e consulenziali per supportare la crescita del vostro business.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-file-invoice"></i></div>
+          <h3 data-i18n="s1Title">Consulenza Fiscale</h3>
+          <p data-i18n="s1Desc">Pianificazione fiscale ottimizzata, dichiarazioni dei redditi, IVA, IMU e gestione di tutti gli adempimenti tributari.</p>
+          <a href="#contatti" class="service-link" data-i18n="serviceMore">Scopri di più →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-calculator"></i></div>
+          <h3 data-i18n="s2Title">Contabilità Aziendale</h3>
+          <p data-i18n="s2Desc">Tenuta della contabilità ordinaria e semplificata, bilanci annuali, scritture contabili e reportistica gestionale.</p>
+          <a href="#contatti" class="service-link" data-i18n="serviceMore">Scopri di più →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-users"></i></div>
+          <h3 data-i18n="s3Title">Gestione Paghe</h3>
+          <p data-i18n="s3Desc">Elaborazione cedolini, gestione INPS e INAIL, contratti di lavoro, assunzioni e cessazioni.</p>
+          <a href="#contatti" class="service-link" data-i18n="serviceMore">Scopri di più →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-building"></i></div>
+          <h3 data-i18n="s4Title">Costituzione Società</h3>
+          <p data-i18n="s4Desc">Apertura di imprese individuali, SRL, SPA, e assistenza completa nelle pratiche di avvio attività.</p>
+          <a href="#contatti" class="service-link" data-i18n="serviceMore">Scopri di più →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+          <h3 data-i18n="s5Title">Consulenza Strategica</h3>
+          <p data-i18n="s5Desc">Business plan, analisi finanziaria, controllo di gestione e supporto nelle decisioni aziendali strategiche.</p>
+          <a href="#contatti" class="service-link" data-i18n="serviceMore">Scopri di più →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-gavel"></i></div>
+          <h3 data-i18n="s6Title">Contenzioso Tributario</h3>
+          <p data-i18n="s6Desc">Assistenza in caso di accertamenti fiscali, ricorsi tributari, mediazioni con l'Agenzia delle Entrate.</p>
+          <a href="#contatti" class="service-link" data-i18n="serviceMore">Scopri di più →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="section-container about-inner">
+      <div class="about-image">
+        <div class="about-img-wrap">
+          <div class="about-img-placeholder">
+            <i class="fas fa-city"></i>
+          </div>
+          <div class="about-badge">
+            <span class="badge-num">20+</span>
+            <span class="badge-txt" data-i18n="badgeTxt">Anni di Esperienza</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-content">
+        <span class="section-label" data-i18n="aboutLabel">Chi Siamo</span>
+        <h2 data-i18n="aboutTitle">Un Riferimento nel Settore della Consulenza Commerciale in Italia</h2>
+        <p data-i18n="aboutP1">Fondato nel 2004 a Milano, lo Studio MMJB è cresciuto fino a diventare uno dei più stimati studi commercialisti del Nord Italia. La nostra missione è fornire consulenza di alta qualità, personalizzata e aggiornata alle ultime normative.</p>
+        <p data-i18n="aboutP2">Serviamo clienti in tutta Italia e all'estero, con una particolare attenzione alle PMI, alle startup e agli imprenditori stranieri che desiderano operare nel mercato italiano.</p>
+        <ul class="about-list">
+          <li><i class="fas fa-check-circle"></i> <span data-i18n="abl1">Iscritti all'Albo dei Dottori Commercialisti</span></li>
+          <li><i class="fas fa-check-circle"></i> <span data-i18n="abl2">Aggiornamento continuo sulle normative fiscali</span></li>
+          <li><i class="fas fa-check-circle"></i> <span data-i18n="abl3">Servizio multilingue (IT, FR, EN, AR)</span></li>
+          <li><i class="fas fa-check-circle"></i> <span data-i18n="abl4">Software gestionali di ultima generazione</span></li>
+        </ul>
+        <a href="#contatti" class="btn btn-primary" data-i18n="aboutCta">Richiedi una Consulenza</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="team" id="team">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-label" data-i18n="teamLabel">Le Persone</span>
+        <h2 data-i18n="teamTitle">Il Nostro Team</h2>
+        <p data-i18n="teamDesc">Professionisti qualificati e appassionati al servizio dei vostri obiettivi.</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-photo">
+            <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
+          </div>
+          <div class="team-info">
+            <h3>Marco Rossi</h3>
+            <span class="team-role" data-i18n="role1">Dottore Commercialista — Fondatore</span>
+            <p data-i18n="bio1">Esperto in fiscalità internazionale e pianificazione tributaria per grandi aziende e gruppi societari.</p>
+            <div class="team-socials">
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo">
+            <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
+          </div>
+          <div class="team-info">
+            <h3>Giulia Bianchi</h3>
+            <span class="team-role" data-i18n="role2">Commercialista Senior</span>
+            <p data-i18n="bio2">Specializzata in contabilità aziendale, bilanci consolidati e revisione dei conti per PMI.</p>
+            <div class="team-socials">
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo">
+            <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
+          </div>
+          <div class="team-info">
+            <h3>Luca Ferrari</h3>
+            <span class="team-role" data-i18n="role3">Consulente del Lavoro</span>
+            <p data-i18n="bio3">Esperto in diritto del lavoro, gestione risorse umane e contrattualistica sindacale.</p>
+            <div class="team-socials">
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-label" data-i18n="testimLabel">Testimonianze</span>
+        <h2 data-i18n="testimTitle">Cosa Dicono i Nostri Clienti</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimon-card">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p data-i18n="t1">"Studio professionale, competente e sempre disponibile. Ci hanno aiutato ad ottimizzare la fiscalità della nostra azienda in modo eccellente."</p>
+          <div class="testimon-author"><strong>Alessandro M.</strong> — CEO, TechMilano Srl</div>
+        </div>
+        <div class="testimon-card">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p data-i18n="t2">"Grazie allo Studio Rossi ho potuto aprire la mia attività in Italia senza stress. Servizio impeccabile e multilingue, consigliato!"</p>
+          <div class="testimon-author"><strong>Karim B.</strong> — Imprenditore</div>
+        </div>
+        <div class="testimon-card">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p data-i18n="t3">"Finalmente uno studio che ci segue a 360° — dalla contabilità al contenzioso. Professionali e umani allo stesso tempo."</p>
+          <div class="testimon-author"><strong>Sophie D.</strong> — Libera Professionista</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contatti">
+    <div class="section-container contact-inner">
+      <div class="contact-info">
+        <span class="section-label" data-i18n="contactLabel">Contattaci</span>
+        <h2 data-i18n="contactTitle">Parliamo del Vostro Progetto</h2>
+        <p data-i18n="contactDesc">Siamo a vostra disposizione per qualsiasi esigenza. Contattateci per una consulenza gratuita e senza impegno.</p>
+        <ul class="contact-details">
+          <li><i class="fas fa-map-marker-alt"></i> Via Brera 12, 20121 Milano MI</li>
+          <li><i class="fas fa-phone"></i> +39 02 1234 5678</li>
+          <li><i class="fas fa-envelope"></i> info@mmjb.it</li>
+          <li><i class="fas fa-clock"></i> <span data-i18n="hours">Lun–Ven: 9:00–18:00</span></li>
+        </ul>
+        <div class="contact-social">
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="contact-form-wrap">
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label data-i18n="formName">Nome e Cognome</label>
+              <input type="text" placeholder="" data-placeholder-i18n="formNamePh" required />
+            </div>
+            <div class="form-group">
+              <label data-i18n="formEmail">Email</label>
+              <input type="email" placeholder="" data-placeholder-i18n="formEmailPh" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label data-i18n="formSubject">Oggetto</label>
+            <input type="text" placeholder="" data-placeholder-i18n="formSubjectPh" />
+          </div>
+          <div class="form-group">
+            <label data-i18n="formService">Servizio di Interesse</label>
+            <select>
+              <option data-i18n="sOpt0" value="">-- Seleziona --</option>
+              <option data-i18n="sOpt1" value="fiscale">Consulenza Fiscale</option>
+              <option data-i18n="sOpt2" value="contabilita">Contabilità</option>
+              <option data-i18n="sOpt3" value="paghe">Gestione Paghe</option>
+              <option data-i18n="sOpt4" value="societa">Costituzione Società</option>
+              <option data-i18n="sOpt5" value="altro">Altro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label data-i18n="formMsg">Messaggio</label>
+            <textarea rows="5" placeholder="" data-placeholder-i18n="formMsgPh" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" data-i18n="formSend">Invia Messaggio</button>
+          <div class="form-success" id="formSuccess">
+            <i class="fas fa-check-circle"></i> <span data-i18n="formSuccess">Messaggio inviato! Vi risponderemo entro 24 ore.</span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="logo">
+          <span class="logo-icon"><i class="fas fa-balance-scale"></i></span>
+          <div class="logo-text">
+            <span class="logo-main">MMJB</span>
+            <span class="logo-sub" data-i18n="logoSub">Studio Commercialista</span>
+          </div>
+        </div>
+        <p data-i18n="footerDesc">Il vostro partner di fiducia per la consulenza fiscale, contabile e aziendale in Italia.</p>
+      </div>
+      <div class="footer-links">
+        <h4 data-i18n="footerNav">Navigazione</h4>
+        <ul>
+          <li><a href="#home" data-i18n="navHome">Home</a></li>
+          <li><a href="#servizi" data-i18n="navServices">Servizi</a></li>
+          <li><a href="#about" data-i18n="navAbout">Chi Siamo</a></li>
+          <li><a href="#team" data-i18n="navTeam">Team</a></li>
+          <li><a href="#contatti" data-i18n="navContact">Contatti</a></li>
+        </ul>
+      </div>
+      <div class="footer-services">
+        <h4 data-i18n="navServices">Servizi</h4>
+        <ul>
+          <li><a href="#" data-i18n="s1Title">Consulenza Fiscale</a></li>
+          <li><a href="#" data-i18n="s2Title">Contabilità Aziendale</a></li>
+          <li><a href="#" data-i18n="s3Title">Gestione Paghe</a></li>
+          <li><a href="#" data-i18n="s4Title">Costituzione Società</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4 data-i18n="navContact">Contatti</h4>
+        <p><i class="fas fa-map-marker-alt"></i> Via Brera 12, Milano</p>
+        <p><i class="fas fa-phone"></i> +39 02 1234 5678</p>
+        <p><i class="fas fa-envelope"></i> info@mmjb.it</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-i18n="footerCopy">© 2026 Studio MMJB. Tutti i diritti riservati.</p>
+      <p data-i18n="footerReg">P.IVA 12345678901 — Iscritto all'Albo dei Dottori Commercialisti di Milano</p>
+    </div>
+  </footer>
+
+  <a href="#home" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+
+  <script src="script.js"></script>
+</body>
+</html>
