@@ -387,6 +387,33 @@ img { max-width: 100%; display: block; }
   font-size: 13px; color: rgba(255,255,255,0.4);
 }
 
+/* ===== TEAM SINGLE FEATURED ===== */
+.team-grid-single {
+  grid-template-columns: 1fr;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.team-card-featured { flex-direction: row; display: flex; }
+.team-card-featured .team-photo { flex: 0 0 200px; height: auto; min-height: 220px; }
+.team-card-featured .team-info { padding: 32px; }
+.team-card-featured h3 { font-size: 26px; }
+.team-badges { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 16px; }
+.badge-ancot {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: var(--gold); font-size: 12px; font-weight: 700;
+  padding: 5px 12px; border-radius: 20px; letter-spacing: 0.5px;
+}
+.badge-ancot i { font-size: 11px; }
+@media (max-width: 600px) {
+  .team-card-featured { flex-direction: column; }
+  .team-card-featured .team-photo { flex: none; height: 180px; }
+  .team-grid-single { max-width: 100%; }
+}
+
+/* ===== PATRONATO SECTION ===== */
+.patronato-section { background: var(--bg); }
+
 /* ===== CAF SECTION ===== */
 .caf-section { background: var(--white); }
 .caf-grid {
