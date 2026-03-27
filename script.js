@@ -83,6 +83,7 @@ const translations = {
     hours: "Lun–Ven: 9:00–18:00",
     formName: "Nome e Cognome",
     formNamePh: "Mario Rossi",
+    formPhone: "Telefono",
     formEmail: "Email",
     formEmailPh: "mario@esempio.it",
     formSubject: "Oggetto",
@@ -98,6 +99,7 @@ const translations = {
     formMsgPh: "Descrivete la vostra situazione o esigenza...",
     formSend: "Invia Messaggio",
     formSuccess: "Messaggio inviato! Vi risponderemo entro 24 ore.",
+    formError: "Errore nell'invio. Riprova o contattaci direttamente.",
     footerDesc: "Il vostro partner di fiducia per la consulenza fiscale, contabile e aziendale in Italia.",
     footerNav: "Navigazione",
     footerCopy: "© 2026 Studio MMJB. Tutti i diritti riservati.",
@@ -214,6 +216,7 @@ const translations = {
     hours: "Lun–Ven : 9h00–18h00",
     formName: "Nom et Prénom",
     formNamePh: "Jean Dupont",
+    formPhone: "Téléphone",
     formEmail: "Email",
     formEmailPh: "jean@exemple.fr",
     formSubject: "Objet",
@@ -229,6 +232,7 @@ const translations = {
     formMsgPh: "Décrivez votre situation ou besoin...",
     formSend: "Envoyer le Message",
     formSuccess: "Message envoyé ! Nous vous répondrons dans les 24 heures.",
+    formError: "Erreur d'envoi. Réessayez ou contactez-nous directement.",
     footerDesc: "Votre partenaire de confiance pour le conseil fiscal, comptable et d'entreprise en Italie.",
     footerNav: "Navigation",
     footerCopy: "© 2026 Studio MMJB. Tous droits réservés.",
@@ -345,6 +349,7 @@ const translations = {
     hours: "Mon–Fri: 9:00 AM–6:00 PM",
     formName: "Full Name",
     formNamePh: "John Smith",
+    formPhone: "Phone",
     formEmail: "Email",
     formEmailPh: "john@example.com",
     formSubject: "Subject",
@@ -360,6 +365,7 @@ const translations = {
     formMsgPh: "Describe your situation or need...",
     formSend: "Send Message",
     formSuccess: "Message sent! We will reply within 24 hours.",
+    formError: "Sending error. Please retry or contact us directly.",
     footerDesc: "Your trusted partner for tax, accounting and business advisory in Italy.",
     footerNav: "Navigation",
     footerCopy: "© 2026 Studio MMJB. All rights reserved.",
@@ -476,6 +482,7 @@ const translations = {
     hours: "الاثنين–الجمعة: 9:00–18:00",
     formName: "الاسم الكامل",
     formNamePh: "محمد علي",
+    formPhone: "الهاتف",
     formEmail: "البريد الإلكتروني",
     formEmailPh: "mohammed@example.com",
     formSubject: "الموضوع",
@@ -491,6 +498,7 @@ const translations = {
     formMsgPh: "اشرح وضعكم أو احتياجاتكم...",
     formSend: "إرسال الرسالة",
     formSuccess: "تم إرسال رسالتكم! سنرد عليكم خلال 24 ساعة.",
+    formError: "خطأ في الإرسال. حاول مجددًا أو تواصل معنا مباشرة.",
     footerDesc: "شريككم الموثوق للاستشارات الضريبية والمحاسبية والتجارية في إيطاليا.",
     footerNav: "التنقل",
     footerCopy: "© 2026 Studio MMJB. جميع الحقوق محفوظة.",
@@ -585,14 +593,46 @@ window.addEventListener('scroll', () => {
   backToTop.classList.toggle('show', window.scrollY > 400);
 });
 
+// ===== EMAILJS CONFIG =====
+// 1) Créez un compte sur https://www.emailjs.com (gratuit — 200 emails/mois)
+// 2) Ajoutez un service email (Yahoo Mail) lié à mbembenero@yahoo.fr
+// 3) Créez un template avec les variables : {{from_name}}, {{from_email}}, {{from_phone}}, {{subject}}, {{service}}, {{message}}
+// 4) Remplacez les valeurs ci-dessous par vos identifiants EmailJS
+const EMAILJS_PUBLIC_KEY  = 'VOTRE_CLE_PUBLIQUE';   // Account > General > Public Key
+const EMAILJS_SERVICE_ID  = 'VOTRE_SERVICE_ID';      // Email Services > Service ID
+const EMAILJS_TEMPLATE_ID = 'VOTRE_TEMPLATE_ID';     // Email Templates > Template ID
+
+emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
 // ===== CONTACT FORM =====
 const contactForm = document.getElementById('contactForm');
 const formSuccess = document.getElementById('formSuccess');
+const formError   = document.getElementById('formError');
+const submitBtn   = document.getElementById('formSubmitBtn');
+
 contactForm.addEventListener('submit', e => {
   e.preventDefault();
-  formSuccess.classList.add('show');
-  contactForm.reset();
-  setTimeout(() => formSuccess.classList.remove('show'), 5000);
+  formSuccess.classList.remove('show');
+  formError.classList.remove('show');
+
+  const originalText = submitBtn.textContent;
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+
+  emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, contactForm)
+    .then(() => {
+      formSuccess.classList.add('show');
+      contactForm.reset();
+      setTimeout(() => formSuccess.classList.remove('show'), 6000);
+    })
+    .catch(() => {
+      formError.classList.add('show');
+      setTimeout(() => formError.classList.remove('show'), 6000);
+    })
+    .finally(() => {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    });
 });
 
 // ===== SMOOTH SCROLL OFFSET for fixed nav =====

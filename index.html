@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Studio Commercialista MMJB</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
@@ -421,35 +422,44 @@
           <div class="form-row">
             <div class="form-group">
               <label data-i18n="formName">Nome e Cognome</label>
-              <input type="text" placeholder="" data-placeholder-i18n="formNamePh" required />
+              <input type="text" name="from_name" placeholder="" data-placeholder-i18n="formNamePh" required />
             </div>
             <div class="form-group">
-              <label data-i18n="formEmail">Email</label>
-              <input type="email" placeholder="" data-placeholder-i18n="formEmailPh" required />
+              <label data-i18n="formPhone">Telefono</label>
+              <input type="tel" name="from_phone" placeholder="+39 000 000 0000" />
             </div>
+          </div>
+          <div class="form-group">
+            <label data-i18n="formEmail">Email</label>
+            <input type="email" name="from_email" placeholder="" data-placeholder-i18n="formEmailPh" required />
           </div>
           <div class="form-group">
             <label data-i18n="formSubject">Oggetto</label>
-            <input type="text" placeholder="" data-placeholder-i18n="formSubjectPh" />
+            <input type="text" name="subject" placeholder="" data-placeholder-i18n="formSubjectPh" />
           </div>
           <div class="form-group">
             <label data-i18n="formService">Servizio di Interesse</label>
-            <select>
+            <select name="service">
               <option data-i18n="sOpt0" value="">-- Seleziona --</option>
-              <option data-i18n="sOpt1" value="fiscale">Consulenza Fiscale</option>
-              <option data-i18n="sOpt2" value="contabilita">Contabilità</option>
-              <option data-i18n="sOpt3" value="paghe">Gestione Paghe</option>
-              <option data-i18n="sOpt4" value="societa">Costituzione Società</option>
-              <option data-i18n="sOpt5" value="altro">Altro</option>
+              <option data-i18n="sOpt1" value="Consulenza Fiscale">Consulenza Fiscale</option>
+              <option data-i18n="sOpt2" value="Contabilità">Contabilità</option>
+              <option data-i18n="sOpt3" value="Gestione Paghe">Gestione Paghe</option>
+              <option data-i18n="sOpt4" value="Costituzione Società">Costituzione Società</option>
+              <option value="CAF">CAF</option>
+              <option value="Patronato">Patronato</option>
+              <option data-i18n="sOpt5" value="Altro">Altro</option>
             </select>
           </div>
           <div class="form-group">
             <label data-i18n="formMsg">Messaggio</label>
-            <textarea rows="5" placeholder="" data-placeholder-i18n="formMsgPh" required></textarea>
+            <textarea rows="5" name="message" placeholder="" data-placeholder-i18n="formMsgPh" required></textarea>
           </div>
-          <button type="submit" class="btn btn-primary" data-i18n="formSend">Invia Messaggio</button>
+          <button type="submit" class="btn btn-primary" id="formSubmitBtn" data-i18n="formSend">Invia Messaggio</button>
           <div class="form-success" id="formSuccess">
             <i class="fas fa-check-circle"></i> <span data-i18n="formSuccess">Messaggio inviato! Vi risponderemo entro 24 ore.</span>
+          </div>
+          <div class="form-error" id="formError">
+            <i class="fas fa-exclamation-circle"></i> <span data-i18n="formError">Errore nell'invio. Riprova o contattaci direttamente.</span>
           </div>
         </form>
       </div>
