@@ -593,46 +593,51 @@ window.addEventListener('scroll', () => {
   backToTop.classList.toggle('show', window.scrollY > 400);
 });
 
-// ===== EMAILJS CONFIG =====
-// 1) Créez un compte sur https://www.emailjs.com (gratuit — 200 emails/mois)
-// 2) Ajoutez un service email (Yahoo Mail) lié à mbembenero@yahoo.fr
-// 3) Créez un template avec les variables : {{from_name}}, {{from_email}}, {{from_phone}}, {{subject}}, {{service}}, {{message}}
-// 4) Remplacez les valeurs ci-dessous par vos identifiants EmailJS
-const EMAILJS_PUBLIC_KEY  = 'VOTRE_CLE_PUBLIQUE';   // Account > General > Public Key
-const EMAILJS_SERVICE_ID  = 'VOTRE_SERVICE_ID';      // Email Services > Service ID
-const EMAILJS_TEMPLATE_ID = 'VOTRE_TEMPLATE_ID';     // Email Templates > Template ID
-
-emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
-
-// ===== CONTACT FORM =====
+// ===== CONTACT FORM — Web3Forms =====
+// Pour activer l'envoi d'email à mbembenero@yahoo.fr :
+// 1) Allez sur https://web3forms.com
+// 2) Entrez l'adresse mbembenero@yahoo.fr et cliquez "Get your Access Key"
+// 3) Vérifiez votre boîte Yahoo et copiez la clé reçue
+// 4) Dans index.html, remplacez VOTRE_CLE_WEB3FORMS par cette clé
 const contactForm = document.getElementById('contactForm');
 const formSuccess = document.getElementById('formSuccess');
 const formError   = document.getElementById('formError');
 const submitBtn   = document.getElementById('formSubmitBtn');
 
-contactForm.addEventListener('submit', e => {
+contactForm.addEventListener('submit', async e => {
   e.preventDefault();
   formSuccess.classList.remove('show');
   formError.classList.remove('show');
 
-  const originalText = submitBtn.textContent;
+  const originalHTML = submitBtn.innerHTML;
   submitBtn.disabled = true;
   submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
 
-  emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, contactForm)
-    .then(() => {
+  const data = new FormData(contactForm);
+  // Ajout du champ nom+prénom depuis le champ from_name
+  const json = Object.fromEntries(data.entries());
+
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(json)
+    });
+    const result = await res.json();
+    if (result.success) {
       formSuccess.classList.add('show');
       contactForm.reset();
       setTimeout(() => formSuccess.classList.remove('show'), 6000);
-    })
-    .catch(() => {
-      formError.classList.add('show');
-      setTimeout(() => formError.classList.remove('show'), 6000);
-    })
-    .finally(() => {
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalText;
-    });
+    } else {
+      throw new Error(result.message);
+    }
+  } catch {
+    formError.classList.add('show');
+    setTimeout(() => formError.classList.remove('show'), 6000);
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalHTML;
+  }
 });
 
 // ===== SMOOTH SCROLL OFFSET for fixed nav =====
